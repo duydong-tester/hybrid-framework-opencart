@@ -1,6 +1,7 @@
 package commons;
 
 import java.time.Duration;
+import java.util.Random;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -28,6 +29,10 @@ public class BaseTest {
 		driver.manage().window().maximize();
 		driver.get(GlobalConstants.PORTAL_SITE_URL);
 		return driver;
+	}
+
+	protected int getRandomNumber() {
+		return new Random().nextInt(10000);
 	}
 
 }
