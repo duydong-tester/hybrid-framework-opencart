@@ -522,6 +522,19 @@ public class BasePage {
 		}
 	}
 
+	// Custom Dropdown
+	protected void selectItemInCustomDropdown(WebDriver driver, String dropdownXPath, String allItemsXPath, String expectedItem) {
+		clickElement(driver, dropdownXPath);
+		sleepForSeconds(oneSec);
+		List<WebElement> allItems = new WebDriverWait(driver, Duration.ofSeconds(longTimeout)).until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(allItemsXPath)));
+		for (WebElement item : allItems) {
+			if (item.getText().trim().equals(expectedItem)) {
+				item.click();
+				break;
+			}
+		}
+	}
+
 	protected void sleepForSeconds(long seconds) {
 		try {
 			Thread.sleep(seconds * 1000);

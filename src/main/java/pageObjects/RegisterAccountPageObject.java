@@ -2,45 +2,45 @@ package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 
-import commons.BasePage;
-import commons.PageGeneratorManager;
+import commons.PatternObjects;
 import pageUIs.RegisterAccountPageUI;
 
-public class RegisterAccountPageObject extends BasePage {
+public class RegisterAccountPageObject extends PatternObjects {
 	private WebDriver driver;
 
 	public RegisterAccountPageObject(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 	}
 
-	public void sendKeysToFirstNameTextbox(String textValue) {
+	public void sendKeysToFirstNameTextbox(String keysToSend) {
 		waitForElementVisible(driver, RegisterAccountPageUI.FIRSTNAME_TEXTBOX);
-		sendKeysToElement(driver, RegisterAccountPageUI.FIRSTNAME_TEXTBOX, textValue);
+		sendKeysToElement(driver, RegisterAccountPageUI.FIRSTNAME_TEXTBOX, keysToSend);
 	}
 
-	public void sendKeysToLastNameTextbox(String textValue) {
+	public void sendKeysToLastNameTextbox(String keysToSend) {
 		waitForElementVisible(driver, RegisterAccountPageUI.LASTNAME_TEXTBOX);
-		sendKeysToElement(driver, RegisterAccountPageUI.LASTNAME_TEXTBOX, textValue);
+		sendKeysToElement(driver, RegisterAccountPageUI.LASTNAME_TEXTBOX, keysToSend);
 	}
 
-	public void sendKeysToEmailTextbox(String textValue) {
+	public void sendKeysToEmailTextbox(String keysToSend) {
 		waitForElementVisible(driver, RegisterAccountPageUI.EMAIL_TEXTBOX);
-		sendKeysToElement(driver, RegisterAccountPageUI.EMAIL_TEXTBOX, textValue);
+		sendKeysToElement(driver, RegisterAccountPageUI.EMAIL_TEXTBOX, keysToSend);
 	}
 
-	public void sendKeysToTelephoneTextbox(String textValue) {
+	public void sendKeysToTelephoneTextbox(String keysToSend) {
 		waitForElementVisible(driver, RegisterAccountPageUI.TELEPHONE_TEXTBOX);
-		sendKeysToElement(driver, RegisterAccountPageUI.TELEPHONE_TEXTBOX, textValue);
+		sendKeysToElement(driver, RegisterAccountPageUI.TELEPHONE_TEXTBOX, keysToSend);
 	}
 
-	public void sendKeysToPasswordTextbox(String textValue) {
+	public void sendKeysToPasswordTextbox(String keysToSend) {
 		waitForElementVisible(driver, RegisterAccountPageUI.PASSWORD_TEXTBOX);
-		sendKeysToElement(driver, RegisterAccountPageUI.PASSWORD_TEXTBOX, textValue);
+		sendKeysToElement(driver, RegisterAccountPageUI.PASSWORD_TEXTBOX, keysToSend);
 	}
 
-	public void sendKeysToPasswordConfirmTextbox(String textValue) {
+	public void sendKeysToPasswordConfirmTextbox(String keysToSend) {
 		waitForElementVisible(driver, RegisterAccountPageUI.PASSWORD_CONFIRM_TEXTBOX);
-		sendKeysToElement(driver, RegisterAccountPageUI.PASSWORD_CONFIRM_TEXTBOX, textValue);
+		sendKeysToElement(driver, RegisterAccountPageUI.PASSWORD_CONFIRM_TEXTBOX, keysToSend);
 	}
 
 	public void checkPrivacyPolicyCheckbox() {
@@ -88,25 +88,9 @@ public class RegisterAccountPageObject extends BasePage {
 		return getElementText(driver, RegisterAccountPageUI.PASSWORD_CONFIRM_TEXTBOX_ERROR_MESSAGE);
 	}
 
-	public void clickMyAccountHeaderDropdown() {
-		waitForElementClickable(driver, RegisterAccountPageUI.MY_ACCOUNT_HEADER_DROPDOWN);
-		clickElement(driver, RegisterAccountPageUI.MY_ACCOUNT_HEADER_DROPDOWN);
-	}
-
-	public void clickRegisterHeaderLink() {
-		waitForElementClickable(driver, RegisterAccountPageUI.REGISTER_HEADER_LINK);
-		clickElement(driver, RegisterAccountPageUI.REGISTER_HEADER_LINK);
-	}
-
 	public String getRegisterSuccessMessage() {
 		waitForElementVisible(driver, RegisterAccountPageUI.REGISTER_SUCCESS_MESSAGE);
 		return getElementText(driver, RegisterAccountPageUI.REGISTER_SUCCESS_MESSAGE);
-	}
-
-	public MyAccountInfoPageObject clickEditAccountLinkAtColumnRight() {
-		waitForElementClickable(driver, RegisterAccountPageUI.EDIT_ACCOUNT_LINK_AT_COLUMN_RIGHT);
-		clickElement(driver, RegisterAccountPageUI.EDIT_ACCOUNT_LINK_AT_COLUMN_RIGHT);
-		return PageGeneratorManager.getMyAccountInfoPage(driver);
 	}
 
 }

@@ -2,14 +2,14 @@ package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 
-import commons.BasePage;
-import commons.PageGeneratorManager;
+import commons.PatternObjects;
 import pageUIs.MyAccountInfoPageUI;
 
-public class MyAccountInfoPageObject extends BasePage {
+public class MyAccountInfoPageObject extends PatternObjects {
 	private WebDriver driver;
 
 	public MyAccountInfoPageObject(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 	}
 
@@ -31,17 +31,6 @@ public class MyAccountInfoPageObject extends BasePage {
 	public String getTelephoneTextboxValue() {
 		waitForElementVisible(driver, MyAccountInfoPageUI.TELEPHONE_TEXTBOX);
 		return getElementAttribute(driver, MyAccountInfoPageUI.TELEPHONE_TEXTBOX, "value");
-	}
-
-	public void clickMyAccountHeaderDropdown() {
-		waitForElementClickable(driver, MyAccountInfoPageUI.MY_ACCOUNT_HEADER_DROPDOWN);
-		clickElement(driver, MyAccountInfoPageUI.MY_ACCOUNT_HEADER_DROPDOWN);
-	}
-
-	public AccountLogoutPageObject clickLogoutHeaderLink() {
-		waitForElementClickable(driver, MyAccountInfoPageUI.LOGOUT_HEADER_LINK);
-		clickElement(driver, MyAccountInfoPageUI.LOGOUT_HEADER_LINK);
-		return PageGeneratorManager.getAccountLogoutPage(driver);
 	}
 
 }

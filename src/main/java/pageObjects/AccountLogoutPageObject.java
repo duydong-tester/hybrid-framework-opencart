@@ -2,14 +2,15 @@ package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 
-import commons.BasePage;
 import commons.PageGeneratorManager;
+import commons.PatternObjects;
 import pageUIs.AccountLogoutPageUI;
 
-public class AccountLogoutPageObject extends BasePage {
+public class AccountLogoutPageObject extends PatternObjects {
 	private WebDriver driver;
 
 	public AccountLogoutPageObject(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 	}
 

@@ -17,9 +17,6 @@ public class RegisterAccountPageUI {
 	public static final String TELEPHONE_TEXTBOX_ERROR_MESSAGE = TELEPHONE_TEXTBOX + "/following-sibling::div[@class='text-danger']";
 	public static final String PASSWORD_TEXTBOX_ERROR_MESSAGE = PASSWORD_TEXTBOX + "/following-sibling::div[@class='text-danger']";
 	public static final String PASSWORD_CONFIRM_TEXTBOX_ERROR_MESSAGE = PASSWORD_CONFIRM_TEXTBOX + "/following-sibling::div[@class='text-danger']";
-	public static final String MY_ACCOUNT_HEADER_DROPDOWN = "//a[@class='dropdown-toggle' and @title='My Account']";
-	public static final String REGISTER_HEADER_LINK = "//ul[contains(@class,'dropdown-menu')]//a[text()='Register']";
 	public static final String REGISTER_SUCCESS_MESSAGE = "//div[@id='content']/h1";
-	public static final String EDIT_ACCOUNT_LINK_AT_COLUMN_RIGHT = "//aside[@id='column-right']//a[text()='Edit Account']";
 
 }

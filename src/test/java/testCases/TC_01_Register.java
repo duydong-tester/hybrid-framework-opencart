@@ -36,9 +36,7 @@ public class TC_01_Register extends BaseTest {
 
 	@Test
 	public void TC_01_Empty_Data() {
-		homePage.clickMyAccountHeaderDropdown();
-
-		registerAccountPage = homePage.clickRegisterHeaderLink();
+		registerAccountPage = (RegisterAccountPageObject) homePage.selectMyAccountHeaderDropdownByTextValue("Register");
 
 		registerAccountPage.sendKeysToFirstNameTextbox("");
 
@@ -69,9 +67,7 @@ public class TC_01_Register extends BaseTest {
 
 	@Test
 	public void TC_02_Invalid_Email() {
-		registerAccountPage.clickMyAccountHeaderDropdown();
-
-		registerAccountPage.clickRegisterHeaderLink();
+		registerAccountPage.selectMyAccountHeaderDropdownByTextValue("Register");
 
 		registerAccountPage.sendKeysToFirstNameTextbox(firstName);
 
@@ -94,9 +90,7 @@ public class TC_01_Register extends BaseTest {
 
 	@Test
 	public void TC_03_Valid_Email() {
-		registerAccountPage.clickMyAccountHeaderDropdown();
-
-		registerAccountPage.clickRegisterHeaderLink();
+		registerAccountPage.selectMyAccountHeaderDropdownByTextValue("Register");
 
 		registerAccountPage.sendKeysToFirstNameTextbox(firstName);
 
@@ -116,7 +110,7 @@ public class TC_01_Register extends BaseTest {
 
 		Assert.assertEquals(registerAccountPage.getRegisterSuccessMessage(), "Your Account Has Been Created!");
 
-		myAccountInfoPage = registerAccountPage.clickEditAccountLinkAtColumnRight();
+		myAccountInfoPage = (MyAccountInfoPageObject) registerAccountPage.clickColumnRightLinkByLinkText("Edit Account");
 
 		Assert.assertEquals(myAccountInfoPage.getFirstNameTextboxValue(), firstName);
 
@@ -126,9 +120,7 @@ public class TC_01_Register extends BaseTest {
 
 		Assert.assertEquals(myAccountInfoPage.getTelephoneTextboxValue(), telephone);
 
-		myAccountInfoPage.clickMyAccountHeaderDropdown();
-
-		accountLogoutPage = myAccountInfoPage.clickLogoutHeaderLink();
+		accountLogoutPage = (AccountLogoutPageObject) myAccountInfoPage.selectMyAccountHeaderDropdownByTextValue("Logout");
 
 		Assert.assertEquals(accountLogoutPage.getLogoutSuccessMessage(), "Account Logout");
 
@@ -137,9 +129,7 @@ public class TC_01_Register extends BaseTest {
 
 	@Test
 	public void TC_04_Existing_Email() {
-		registerAccountPage.clickMyAccountHeaderDropdown();
-
-		registerAccountPage.clickRegisterHeaderLink();
+		registerAccountPage = (RegisterAccountPageObject) homePage.selectMyAccountHeaderDropdownByTextValue("Register");
 
 		registerAccountPage.sendKeysToFirstNameTextbox(firstName);
 
@@ -162,9 +152,7 @@ public class TC_01_Register extends BaseTest {
 
 	@Test
 	public void TC_05_Invalid_Password() {
-		registerAccountPage.clickMyAccountHeaderDropdown();
-
-		registerAccountPage.clickRegisterHeaderLink();
+		registerAccountPage.selectMyAccountHeaderDropdownByTextValue("Register");
 
 		registerAccountPage.sendKeysToFirstNameTextbox(firstName);
 
@@ -187,9 +175,7 @@ public class TC_01_Register extends BaseTest {
 
 	@Test
 	public void TC_06_Incorrect_Confirm_Password() {
-		registerAccountPage.clickMyAccountHeaderDropdown();
-
-		registerAccountPage.clickRegisterHeaderLink();
+		registerAccountPage.selectMyAccountHeaderDropdownByTextValue("Register");
 
 		registerAccountPage.sendKeysToFirstNameTextbox(firstName);
 
