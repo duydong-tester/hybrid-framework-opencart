@@ -10,7 +10,6 @@ public class RegisterAccountPageUI {
 	public static final String PASSWORD_CONFIRM_TEXTBOX = "//input[@id='input-confirm']";
 	public static final String PRIVACY_POLICY_CHECKBOX = "//b[text()='Privacy Policy']/parent::a/following-sibling::input[@type='checkbox']";
 	public static final String CONTINUE_BUTTON = "//input[@type='submit' and @value='Continue']";
-	public static final String ALERT_WARNING_MESSAGE = "//div[contains(@class,'alert-danger')]";
 	public static final String FIRSTNAME_TEXTBOX_ERROR_MESSAGE = FIRSTNAME_TEXTBOX + "/following-sibling::div[@class='text-danger']";
 	public static final String LASTNAME_TEXTBOX_ERROR_MESSAGE = LASTNAME_TEXTBOX + "/following-sibling::div[@class='text-danger']";
 	public static final String EMAIL_TEXTBOX_ERROR_MESSAGE = EMAIL_TEXTBOX + "/following-sibling::div[@class='text-danger']";

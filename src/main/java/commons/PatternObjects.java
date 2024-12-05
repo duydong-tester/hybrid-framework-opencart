@@ -16,6 +16,8 @@ public class PatternObjects extends BasePage {
 			return PageGeneratorManager.getRegisterAccountPage(driver);
 		case "Logout":
 			return PageGeneratorManager.getAccountLogoutPage(driver);
+		case "Login":
+			return PageGeneratorManager.getLoginPage(driver);
 		default:
 			throw new RuntimeException("[" + optionTextValue + "] My Account header dropdown link text is invalid!");
 		}
@@ -30,6 +32,11 @@ public class PatternObjects extends BasePage {
 		default:
 			throw new RuntimeException("[" + linkTextValue + "] Column right link text is invalid!");
 		}
+	}
+
+	public String getAlertWarningMessage() {
+		waitForElementVisible(driver, PatternUIs.ALERT_WARNING_MESSAGE);
+		return getElementText(driver, PatternUIs.ALERT_WARNING_MESSAGE);
 	}
 
 }

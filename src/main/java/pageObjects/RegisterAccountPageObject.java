@@ -53,11 +53,6 @@ public class RegisterAccountPageObject extends PatternObjects {
 		clickElement(driver, RegisterAccountPageUI.CONTINUE_BUTTON);
 	}
 
-	public String getAlertWarningMessage() {
-		waitForElementVisible(driver, RegisterAccountPageUI.ALERT_WARNING_MESSAGE);
-		return getElementText(driver, RegisterAccountPageUI.ALERT_WARNING_MESSAGE);
-	}
-
 	public String getFirstNameTextboxErrorMessage() {
 		waitForElementVisible(driver, RegisterAccountPageUI.FIRSTNAME_TEXTBOX_ERROR_MESSAGE);
 		return getElementText(driver, RegisterAccountPageUI.FIRSTNAME_TEXTBOX_ERROR_MESSAGE);
@@ -91,6 +86,17 @@ public class RegisterAccountPageObject extends PatternObjects {
 	public String getRegisterSuccessMessage() {
 		waitForElementVisible(driver, RegisterAccountPageUI.REGISTER_SUCCESS_MESSAGE);
 		return getElementText(driver, RegisterAccountPageUI.REGISTER_SUCCESS_MESSAGE);
+	}
+
+	public void registerNewAccountByValidData(String firstName, String lastName, String emailAddress, String password, String telephone) {
+		sendKeysToFirstNameTextbox(firstName);
+		sendKeysToLastNameTextbox(lastName);
+		sendKeysToEmailTextbox(emailAddress);
+		sendKeysToTelephoneTextbox(telephone);
+		sendKeysToPasswordTextbox(password);
+		sendKeysToPasswordConfirmTextbox(password);
+		checkPrivacyPolicyCheckbox();
+		clickContinueButton();
 	}
 
 }

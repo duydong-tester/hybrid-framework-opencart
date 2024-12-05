@@ -8,6 +8,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
+import commons.PageGeneratorManager;
 import pageObjects.HomePageObject;
 import pageObjects.MyAccountInfoPageObject;
 import pageObjects.AccountLogoutPageObject;
@@ -25,7 +26,7 @@ public class TC_01_Register extends BaseTest {
 	@BeforeClass
 	public void beforeClass(String browserName) {
 		driver = getWebDriver(browserName);
-		homePage = new HomePageObject(driver);
+		homePage = PageGeneratorManager.getHomePage(driver);
 
 		firstName = "Dong";
 		lastName = "Do";
@@ -35,7 +36,7 @@ public class TC_01_Register extends BaseTest {
 	}
 
 	@Test
-	public void TC_01_Empty_Data() {
+	public void Register_01_Empty_Data() {
 		registerAccountPage = (RegisterAccountPageObject) homePage.selectMyAccountHeaderDropdownByTextValue("Register");
 
 		registerAccountPage.sendKeysToFirstNameTextbox("");
@@ -66,7 +67,7 @@ public class TC_01_Register extends BaseTest {
 	}
 
 	@Test
-	public void TC_02_Invalid_Email() {
+	public void Register_02_Invalid_Email() {
 		registerAccountPage.selectMyAccountHeaderDropdownByTextValue("Register");
 
 		registerAccountPage.sendKeysToFirstNameTextbox(firstName);
@@ -89,7 +90,7 @@ public class TC_01_Register extends BaseTest {
 	}
 
 	@Test
-	public void TC_03_Valid_Email() {
+	public void Register_03_Valid_Email() {
 		registerAccountPage.selectMyAccountHeaderDropdownByTextValue("Register");
 
 		registerAccountPage.sendKeysToFirstNameTextbox(firstName);
@@ -128,7 +129,7 @@ public class TC_01_Register extends BaseTest {
 	}
 
 	@Test
-	public void TC_04_Existing_Email() {
+	public void Register_04_Existing_Email() {
 		registerAccountPage = (RegisterAccountPageObject) homePage.selectMyAccountHeaderDropdownByTextValue("Register");
 
 		registerAccountPage.sendKeysToFirstNameTextbox(firstName);
@@ -151,7 +152,7 @@ public class TC_01_Register extends BaseTest {
 	}
 
 	@Test
-	public void TC_05_Invalid_Password() {
+	public void Register_05_Invalid_Password() {
 		registerAccountPage.selectMyAccountHeaderDropdownByTextValue("Register");
 
 		registerAccountPage.sendKeysToFirstNameTextbox(firstName);
@@ -174,7 +175,7 @@ public class TC_01_Register extends BaseTest {
 	}
 
 	@Test
-	public void TC_06_Incorrect_Confirm_Password() {
+	public void Register_06_Incorrect_Confirm_Password() {
 		registerAccountPage.selectMyAccountHeaderDropdownByTextValue("Register");
 
 		registerAccountPage.sendKeysToFirstNameTextbox(firstName);

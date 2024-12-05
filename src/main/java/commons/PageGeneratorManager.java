@@ -4,7 +4,9 @@ import org.openqa.selenium.WebDriver;
 
 import pageObjects.AccountLogoutPageObject;
 import pageObjects.HomePageObject;
+import pageObjects.AccountLoginPageObject;
 import pageObjects.MyAccountInfoPageObject;
+import pageObjects.MyAccountPageObject;
 import pageObjects.RegisterAccountPageObject;
 
 public class PageGeneratorManager {
@@ -23,6 +25,14 @@ public class PageGeneratorManager {
 
 	public static AccountLogoutPageObject getAccountLogoutPage(WebDriver driver) {
 		return new AccountLogoutPageObject(driver);
+	}
+
+	public static AccountLoginPageObject getLoginPage(WebDriver driver) {
+		return new AccountLoginPageObject(driver);
+	}
+
+	public static MyAccountPageObject getMyAccountPageObject(WebDriver driver) {
+		return new MyAccountPageObject(driver);
 	}
 
 }
